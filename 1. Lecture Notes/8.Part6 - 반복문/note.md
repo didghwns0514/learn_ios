@@ -118,3 +118,17 @@ for i in range2 {
 
 
 ```
+
+### 7) 많이 활용하는 방법
+
+```swift
+// 이런 방식으로 많이 활용
+
+var number = 10 // scope 주의! 중괄호 안은 그 안에서만 스택 영역임!
+
+
+for i in 1...number {
+    print(i)
+}
+
+```
