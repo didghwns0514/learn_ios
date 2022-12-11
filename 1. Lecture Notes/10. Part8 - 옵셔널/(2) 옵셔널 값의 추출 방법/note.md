@@ -91,6 +91,7 @@ func funcTest(_ : String?){
     print(name)
 }
 
+
 funcTest(optionalName)
 > optionalName = nil > escape!
 > optionalName = "Hi" > not escape! Hi
