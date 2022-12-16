@@ -14,6 +14,8 @@
 
 ### 특징
 
+enum case 라고 칭하는 패턴임
+
 ### 1) 일반적인 열거형 switch문 분기 처리 방식
 
 ```swift
@@ -85,6 +87,7 @@ switch chip {
 - if case / guard case 이후 `대입 연산자  ( = ) 필요`
   - 이건 원본 case 문 문법이랑 차이나는 부분
   - , 을 통해서 추가 조건 붙일 수 있음; `if 문 기본 문법`
+    - 여기선 `enum case` 패턴 if문에 사용했을 경우 무조건 and 조건 comma로 받아야 함
 
 ```swift
 enum Computer {                         // 3가지로 정의
@@ -108,44 +111,44 @@ if case Computer.hardDisk(gb: let gB) = chip, gB == 256 {    // 처리를 다양
 
 - in 을 붙여서 for - in 으로 접근 가능
 
-  ```swift
-  enum Computer {                         // 3가지로 정의
-      case cpu(core: Int, ghz: Double)
-      case ram(Int, String)
-      case hardDisk(gb: Int)
-  }
+```swift
+enum Computer {                         // 3가지로 정의
+    case cpu(core: Int, ghz: Double)
+    case ram(Int, String)
+    case hardDisk(gb: Int)
+}
 
-  // Computer 배열 정의
-  let chiplists: [Computer] = [
-      .cpu(core: 4, ghz: 3.0),
-      .cpu(core: 8, ghz: 3.5),
-      .ram(16, "SRAM"),
-      .ram(32, "DRAM"),
-      .cpu(core: 8, ghz: 3.5),
-      .hardDisk(gb: 500),
-      .hardDisk(gb: 256)
-  ]
-
-
-  // cpu인 경우만 뽑음, in 을 붙여서 for - in 으로 접근 가능
-  for case let .cpu(core: c, ghz: h) in chiplists {    // 배열중에서 특정 케이스만 뽑아서 활용 가능 ⭐️
-      print("CPU칩: \(c)코어, \(h)헤르츠")
-  }
+// Computer 배열 정의
+let chiplists: [Computer] = [
+    .cpu(core: 4, ghz: 3.0),
+    .cpu(core: 8, ghz: 3.5),
+    .ram(16, "SRAM"),
+    .ram(32, "DRAM"),
+    .cpu(core: 8, ghz: 3.5),
+    .hardDisk(gb: 500),
+    .hardDisk(gb: 256)
+]
 
 
-  // 일반 for문과 비교 =====> 모든 경우
-  for chip in chiplists {
-      print("\(chip)")
-  }
-  > -----
-  cpu(core: 4, ghz: 3.0)
-  cpu(core: 8, ghz: 3.5)
-  ram(16, "SRAM")
-  ram(32, "DRAM")
-  cpu(core: 8, ghz: 3.5)
-  hardDisk(gb: 500)
-  hardDisk(gb: 256)
-  ```
+// cpu인 경우만 뽑음, in 을 붙여서 for - in 으로 접근 가능
+for case let .cpu(core: c, ghz: h) in chiplists {    // 배열중에서 특정 케이스만 뽑아서 활용 가능 ⭐️
+    print("CPU칩: \(c)코어, \(h)헤르츠")
+}
+
+
+// 일반 for문과 비교 =====> 모든 경우
+for chip in chiplists {
+    print("\(chip)")
+}
+> -----
+cpu(core: 4, ghz: 3.0)
+cpu(core: 8, ghz: 3.5)
+ram(16, "SRAM")
+ram(32, "DRAM")
+cpu(core: 8, ghz: 3.5)
+hardDisk(gb: 500)
+hardDisk(gb: 256)
+```
 
 - some에 대한 케이스만 다루는 예제
 
