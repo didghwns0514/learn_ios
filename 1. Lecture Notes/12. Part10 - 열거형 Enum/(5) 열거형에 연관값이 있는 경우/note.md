@@ -16,6 +16,11 @@
 
 enum case 라고 칭하는 패턴임
 
+```swift
+case let Enum.enumCase(num)
+case Enum.enumCase(let num)
+```
+
 ### 1) 일반적인 열거형 switch문 분기 처리 방식
 
 ```swift
