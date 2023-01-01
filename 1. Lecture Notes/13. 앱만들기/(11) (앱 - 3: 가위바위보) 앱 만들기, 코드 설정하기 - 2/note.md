@@ -46,5 +46,5 @@ override func viewDidLoad() {
 
 ### 5) Enum init
 
-- init에 랜덤 int 넣어서 생성 시, 숫자 넣어주면 해당 state/값으로 세팅 가능
+- init 생성시에 `rawValue`에 랜덤 int 넣어서 생성 시, 숫자 넣어주면 해당 state/값으로 세팅 가능
 - 물론, 원시값 형태로 선언된 경우임!
