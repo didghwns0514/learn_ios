@@ -14,6 +14,10 @@ learning ios on Inf-learn Bootcamp series
 
 <br>
 
-## ㅈㅁㄹㅋ
+## 질문 링크
 
 [링크](https://pointed-earwig-996.notion.site/Swift-FAQ-a88cf6183bb74604824f85b668489ffb)
+
+## 자주 질문
+
+[링크](https://bit.ly/3BDdRSM)
